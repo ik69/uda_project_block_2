@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StarNotary DAPP</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <style>
+    input {display: inline-block;margin-bottom: 12px;}
+    .main {display: flex;flex-direction: row;flex-wrap: wrap ;}
+   
+    #forsaleDiv {display: flex;flex-direction: column;flex-wrap: wrap;}
+    #forsaleDiv2 {display: flex;flex-direction: column;flex-wrap: wrap;}
+    #forsaleDiv2 button {margin-bottom: 10px;}
+    .item {min-width: 360px;max-height:100px;flex: 1 0; margin: 5px  10px; text-align: center;}
+    .item1 {min-width: 180px; margin: 5px  10px; border: 1px solid black;padding: 6px;}
+    input[type="number"] { width: 35px;}
+  </style>
+
+  <body>
+    <h1>StarNotary Token DAPP</h1>
+    <p>
+      <span><b>My Address:</b> </span>
+      <span id="myAddress" style="text-align: center; font-size: 16px;color: green;"></span>
+      <span><b>My Token:</b> </span>
+      <span id="myToken" style="text-align: center; font-size: 20px; font-weight:700; color: #ff5722;"></span>
+    </p>
+    <hr>
+<div class="main" >
+  <div class="item1">
+    <h2>Create a Star</h2>
+      <label for="starName">Star Name:</label>
+      <input type="text" id="starName" size="8" required/>
+      <label for="starId">Star ID:</label>
+        <input type="number" id="starId" min="1" required/>
+      <button id="createStar" onclick="App.createStar()">Create Star</button>
+      <h2>Look up a Star</h2>
+      <label for="name">Star ID:</label>
+      <input type="number" id="lookid" min="1" required>
+      <button onclick="App.lookUp()">Look Up a Star</button>
+    
+  </div>
+<div class="item1">
+  <h2>Put Star Up ForSale</h2>
+    <label for="forsaleId">Star ID:</label>
+    <input type="number" min="1" id="forsaleId" required/>
+    <label for="salePreis">Star preis:</label>
+    <input type="number" min="1" id="salePreis" required/>
+    <button onclick="App.putForSale()">Add to sale</button>
+    <h2>Buy a Star</h2>
+    <label for="buyStarId">Star ID:</label>
+    <input type="number" min="1" id="buyStarId" required/>
+    <button onclick="App.buyStar()">Buy a Star</button>
+</div>
+  <div class="item1">
+    <h2>Transfer Star</h2>
+    <label for="transferStarInput">Star ID:</label>
+    <input type="number" id="transferStarInput"required min="1"/>
+    
+    <label for="transferStarAddress">Address to:</label>
+        <input type="text" id="transferStarAddr" size="42" required/>
+        <br>
+    <button id="transferStar" onclick="App.transferStar()">Transfer Star</button>
+    <h2>Exchange Star</h2>
+      <input type="number" id="starIdExchangeFrom" min="1" required/>
+      <input type="number" id="starIdExchangeTo" min="1" required/>
+      <button id="exchangestar" onclick="App.exchangeStar()">Exchange Star </button>
+  </div>
+  <div id="forsaleDiv" class="item1">
+    <h2>Stars for sale</h2>
+    <div id="forsaleDiv2">
+
+    </div>
+
+  </div>
+  <div class="item">
+    <span id="status" style="text-align: center; font-size: 25px;color: blue;"></span>
+
+  </div>
+  <div class="main" id="main">
+    
+  </div>
+</div>
+    
+      <hr>
+     
+    <script src="index.js"></script>
+  </body>
+</html>
